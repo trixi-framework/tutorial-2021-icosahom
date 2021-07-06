@@ -1,6 +1,6 @@
 # Tutorial on Trixi.jl at ICOSAHOM 2021
 
-This the companion repository for the tutorial on
+This is the companion repository for the tutorial on
 [Trixi.jl](https://github.com/trixi-framework/Trixi.jl) at
 [ICOSAHOM 2021](https://www.icosahom2020.org):
 
