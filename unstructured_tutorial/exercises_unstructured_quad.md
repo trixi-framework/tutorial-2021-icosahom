@@ -60,7 +60,7 @@ Where did the mesh used in the previous exercise come from? For the elixir files
 mesh files are automatically downloaded and used for the Trixi execution. For instance, after executing *Exercise 1*
 you will now see the file `mesh_trixi_unstructured_mesh_docs.mesh` in the `examples/unstructured_2d_dgsem/` folder.
 
-This exercise, broken into three components, provides some background detail on the mesh generator
+This exercise, divided into three components, provides some background detail on the mesh generator
 of the Trixi toolchain and how it can be called directly in Julia to create mesh files locally for a Trixi
 simulation.
 
@@ -160,8 +160,8 @@ Within the HOHQMesh control input each curve must be assigned to a `CHAIN` as sh
        name = InnerCircle1
        \begin{PARAMETRIC_EQUATION_CURVE}
           name = Circle
-          xEqn = f(t) = 0.0 + 0.3*cos(2*pi*t)
-          yEqn = f(t) = 0.0 + 0.3*sin(2*pi*t)
+          xEqn = x(t) = 0.0 + 0.3*cos(2*pi*t)
+          yEqn = y(t) = 0.0 + 0.3*sin(2*pi*t)
           zEqn = z(t) = 0.0
       \end{PARAMETRIC_EQUATION_CURVE}
    \end{CHAIN}
@@ -180,21 +180,22 @@ To generate the mesh with a box around a circular object execute
 julia> control_file = joinpath(@__DIR__, "box_with_object.control");
 julia> output = generate_mesh(control_file);
 julia> println(output)
- 2D Mesh Statistics:
-    Total time         =    1.6957000000000000E-002
-    Number of nodes    =           79
-    Number of Edges    =          144
-    Number of Elements =           65
+
+2D Mesh Statistics:
+    Total time         =    1.7602999999999997E-002
+    Number of nodes    =           92
+    Number of Edges    =          168
+    Number of Elements =           76
 
  Mesh Quality:
          Measure         Minimum         Maximum         Average  Acceptable Low Acceptable High       Reference
-     Signed Area      0.06278469      1.00000000      0.38069910      0.00000000    999.99900000      1.00000000
-    Aspect Ratio      1.00000000      1.80473785      1.42299887      1.00000000    999.99900000      1.00000000
-       Condition      1.00000000      1.50000000      1.24448991      1.00000000      4.00000000      1.00000000
-      Edge Ratio      1.00000000      2.17880680      1.59557964      1.00000000      4.00000000      1.00000000
-        Jacobian      0.03911184      1.00000000      0.32191112      0.00000000    999.99900000      1.00000000
-   Minimum Angle     45.00000000     90.00000000     67.00242604     40.00000000     90.00000000     90.00000000
-   Maximum Angle     90.00000000    135.00000000    111.67181399     90.00000000    135.00000000     90.00000000
+     Signed Area      0.10579233      1.10071875      0.47033476      0.00000000    999.99900000      1.00000000
+    Aspect Ratio      1.05389898      1.69573058      1.30167550      1.00000000    999.99900000      1.00000000
+       Condition      1.01321897      1.62533776      1.18031828      1.00000000      4.00000000      1.00000000
+      Edge Ratio      1.09106716      2.33179023      1.58568019      1.00000000      4.00000000      1.00000000
+        Jacobian      0.06133180      1.00000000      0.36883992      0.00000000    999.99900000      1.00000000
+   Minimum Angle     52.27247662     84.58464452     70.10239116     40.00000000     90.00000000     90.00000000
+   Maximum Angle     95.22816021    136.94984543    111.79951337     90.00000000    135.00000000     90.00000000
        Area Sign      1.00000000      1.00000000      1.00000000      1.00000000      1.00000000      1.00000000
 ```
 The third command that prints the mesh statistics to the screen is optional. The `box_with_object.mesh` and `box_with_object.tec` files
@@ -347,8 +348,8 @@ using the skeleton
        name =
        \begin{PARAMETRIC_EQUATION_CURVE}
           name =
-          xEqn = f(t) =
-          yEqn = f(t) =
+          xEqn = x(t) =
+          yEqn = y(t) =
           zEqn = z(t) = 0.0
       \end{PARAMETRIC_EQUATION_CURVE}
    \end{CHAIN}
@@ -359,8 +360,9 @@ Generate this new mesh with a box around a two objects by executing the followin
 julia> control_file = joinpath(@__DIR__, "box_with_two_objects.control");
 julia> output = generate_mesh(control_file);
 julia> println(output)
+
  2D Mesh Statistics:
-    Total time         =    5.1221999999999990E-002
+    Total time         =    5.1164000000000001E-002
     Number of nodes    =          293
     Number of Edges    =          552
     Number of Elements =          258
