@@ -56,7 +56,7 @@ then it is possible to open the `.pvd` file with Paraview and create a video of 
 
 # Exercise 2: Generate an unstructured quadrilateral mesh for use in Trixi
 
-Where did the mesh used in the default unstrctured example of thprevious exercise come from?
+Where did the mesh used in the default unstructured example of the previous exercise come from?
 For the elixir files present in `examples/unstructured_2d_dgsem/` certain
 mesh files are automatically downloaded and used for the Trixi execution. For instance, after executing *Exercise 1*
 you will now see the file `mesh_trixi_unstructured_mesh_docs.mesh` in the `examples/unstructured_2d_dgsem/` folder.
