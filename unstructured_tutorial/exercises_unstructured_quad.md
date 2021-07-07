@@ -38,15 +38,15 @@ julia> using Trixi2Vtk
 julia> trixi2vtk("out/solution_000180.h5", output_directory="out")
 ```
 Note this step takes 15-30 seconds as the package `Trixi2Vtk` must be precompiled and executed for the first time
-in your REPL session. The above `trixi2vtk` command will convert the solution file at the final time into a `.vtu`
+in your REPL session. The above `trixi2vtk` command will convert the solution file at the final time into a `.vtu` file
 which can be readin and visualize with Paraview. A required argument for `trixi2vtk` is to point to the `output_directory`
 where the new files will be saved. An optional argument that can be set with `trixi2vtk` is to specify the number of
 visualization nodes. For instance, if we want to use 12 uniformly spaced nodes for visualization we can execute
 ```julia
 julia> trixi2vtk("out/solution_000180.h5", output_directory="out", nvisnodes=12)
 ```
-By default `trixi2vtk` will use the same number of nodes as specified in the `elixir` file used to
-run the simulation.
+By default `trixi2vtk` sets `nvisnodes` to be the same as the number of nodes specified in
+the `elixir` file used to run the simulation.
 
 Finally, if you want to convert all the solution files to VTK execute
 ```julia
@@ -56,7 +56,8 @@ then it is possible to open the `.pvd` file with Paraview and create a video of 
 
 # Exercise 2: Generate an unstructured quadrilateral mesh for use in Trixi
 
-Where did the mesh used in the previous exercise come from? For the elixir files present in `examples/unstructured_2d_dgsem/` certain
+Where did the mesh used in the default unstrctured example of thprevious exercise come from?
+For the elixir files present in `examples/unstructured_2d_dgsem/` certain
 mesh files are automatically downloaded and used for the Trixi execution. For instance, after executing *Exercise 1*
 you will now see the file `mesh_trixi_unstructured_mesh_docs.mesh` in the `examples/unstructured_2d_dgsem/` folder.
 
@@ -69,11 +70,12 @@ simulation.
 To obtain unstructured curvilinear quadrilateral meshes in the format required by Trixi we use the
 [*High-Order Hex-Quad (HOHQ) Mesh*](https://github.com/trixi-framework/HOHQMesh) generator created and developed by David Kopriva.
 HOHQMesh is a mesh generator specifically designed for spectral element methods where elements can be larger (due to the high accuracy
-of the spatial approximation) and provides high-order boundary curve information (needed to accurate set boundary conditions).
+of the spatial approximation) and provides high-order boundary curve information (needed to accurately set boundary conditions).
 For more information about the design and features of HOQHMesh you can refer to its
 [official documentation](https://trixi-framework.github.io/HOHQMesh/).
 
-HOHQMesh is incorporated in the Trixi framework via the registered package [HOHQMesh.jl](https://github.com/trixi-framework/HOHQMesh.jl).
+HOHQMesh is incorporated in the Trixi framework via the registered Julia package
+[HOHQMesh.jl](https://github.com/trixi-framework/HOHQMesh.jl).
 This package provides a Julia wrapper for the HOHQMesh generator that allows users to easily create mesh files without the need to build
 HOHQMesh from source. To install the HOHQMesh package execute
 ```julia
@@ -86,10 +88,10 @@ Now we are ready to generate an unstructured quadrilateral mesh that can be used
 The creation of a mesh using the HOHQMesh generator is driven by a **control file**. Is this file the user dictates
 the domain to be meshed, prescribes any desired boundary curvature, the polynomial order of said boundaries, etc.
 In this tutorial we only cover several basic features of the possible control inputs. For a complete discussion
-on the control file see the [HOHQMesh documentation](https://trixi-framework.github.io/HOHQMesh/).
+on this topic see the [HOHQMesh control file documentation](https://trixi-framework.github.io/HOHQMesh/the-control-file/).
 
-Open the file `box_with_object.control` provided in this tutorial. To begin we note that blank space or anything after a `%` is ignored
-by HOHQMesh at readin. The first three block of information are wrapped within a `CONTROL_INPUT` environment block as they define the
+Open the file `box_with_object.control` provided by this tutorial. To begin we note that blank space or anything after a `%` is ignored
+by HOHQMesh at readin. The first three blocks of information are wrapped within a `CONTROL_INPUT` environment block as they define the
 core components of the quadrilateral mesh that will be generated.
 
 The first block of information in `RUN_PARAMETERS` is
@@ -120,9 +122,11 @@ The second block of information in `BACKGOUND_GRID`is
    N  = [6,6,1]
 \end{BACKGROUND_GRID}
 ```
-This lays a grid of Cartesian elements for the domain beginning at the point `x0`. The value of `dx`, which could differ in each direction
-if desired, controls the step size taken in each Cartesian direction. The values in `N` set how many Cartesian box elements
-are set in each coordinate direction. The above parameters define a $`6\times 6`$ element square mesh on $`[-3,3]^2`$. Further, this sets up four outer boundaries of the domain that are given the default names: `Top, Left, Bottom, Right`.
+This lays a grid of Cartesian elements for the domain beginning at the point `x0` as its bottom-left corner.
+The value of `dx`, which could differ in each direction if desired, controls the step size taken in each Cartesian direction.
+The values in `N` set how many Cartesian box elements are set in each coordinate direction.
+The above parameters define a $`6\times 6`$ element square mesh on $`[-3,3]^2`$.
+Further, this sets up four outer boundaries of the domain that are given the default names: `Top, Left, Bottom, Right`.
 
 The third block of information in `SPRING_SMOOTHER` is
 ```
@@ -137,16 +141,19 @@ The third block of information in `SPRING_SMOOTHER` is
    time step            = 0.1
 \end{SPRING_SMOOTHER}
 ```
-Once HOHQMesh generates the mesh a spring-mass-dashpot model is created to smooth the mesh and create "nicer" quadrilateral elements.
+Once HOHQMesh generates the mesh, a spring-mass-dashpot model is created to smooth the mesh and create "nicer" quadrilateral elements.
 The parameters for this spring-mass-dashpot model have been selected after a fair amount of experimentation across many meshes
 and typically will not need to be altered. However, if you ever wish to deactivate this feature you can set `smoothing = OFF`
 (or remove this block from the control file).
 
-After the `CONTROL_INPUT` environment block comes the `MODEL` environment block. It is here where the user can prescribe curved boundary information either an `OUTER_BOUNDARY` (not covered in this tutorial) or `INNER_BOUNDARIES`. There are several options to
-describe the boundary curve data to HOHQMesh like splines or parametric curves.
+After the `CONTROL_INPUT` environment block comes the `MODEL` environment block. It is here where the user can prescribe curved boundary information with either:
+* An `OUTER_BOUNDARY` (not covered in this tutorial).
+* One or more `INNER_BOUNDARIES`.
 
-For the example `box_with_object.control` we define a single internal boundary using a parametric equation for a circle
-of radius $`r`$ centered at the point $`(x_c, y_c)`$, i.e.,
+There are several options to describe the boundary curve data to HOHQMesh like splines or parametric curves.
+
+For the example `box_with_object.control` we define a single internal boundary using a parametric equation
+for a circle of radius $`r`$ centered at the point $`(x_c, y_c)`$, i.e.,
 ```math
 x(t) = x_c + r\cos(2\pi t), y(t) = y_c + r\sin(2\pi t)
 ```
@@ -215,15 +222,16 @@ and re-load the `box_with_object.tec` file in Paraview to also visualize that in
 With the new mesh generated from *Exercise 3* we are ready to run another Trixi simulation on an unstructured quadrilateral mesh.
 For this we must create a new elixir file. As in *Exercise 1* we will solve the 2D compressible Euler equations.
 
-This elixir file already creates a new initial condition for a uniform background flow state with a free stream Mach number of 0.3.
+The elixir file `tutorial_unstructured_exercise_3.jl` already creates a new initial condition for a
+uniform background flow state with a free stream Mach number of 0.3.
 An exercise dedicated to modifying the initial conditions is provided in `exercises_linear_advection.ipynb` for
 the linear advection equations.
 
 The focus of this exercise is to specify the boundary conditions and the construct the new mesh from the
 file that was generated in the previous exercise. It is straightforward to set the different boundary
 condition types in an elixir by assigning a particular function to a boundary name inside a
-Julia dictionary, `Dict`, variable. Observe that the names of these boundaries match those that were either
-default, e.g. `Bottom`, or user assigned, e.g. `Circle`, within HOHQMesh. For this problem setup use
+Julia dictionary, `Dict`, variable. Observe that the names of these boundaries match those provided by HOHQMesh
+either by default, e.g. `Bottom`, or user assigned, e.g. `Circle`. For this problem setup use
 * Freestream boundary conditions on the four box edges
 * Free slip wall boundary condition on the interior circular boundary
 
@@ -306,7 +314,8 @@ sol = solve(ode, CarpenterKennedy2N54(williamson_condition=false),
 summary_callback()
 ```
 
-Before we run the next simulation it is good to "clean" the output directory of old plotting files with
+Before we run this simulation it is alwaays a good idea to "clean" the Trixi output directory
+and remove any old solution and/or plotting files with
 ```
 rm out/*.h5 out/*.vtu
 ```
@@ -320,14 +329,14 @@ The simulation should use 131 time steps. You can convert the solution files to 
 ```julia
 trixi2vtk("out/solution_000*", output_directory="out", nvisnodes=10)
 ```
-Then open the `.pvd` file in Paraview and watch the solution video.
+then open the `.pvd` file in Paraview and watch the solution video.
 
 # Exercise 4: Generate a mesh with two objects and run again
 
 The final exercise is to demonstrate the ease with which the user can update a new mesh and
 modify an existing elixir file to run a new simulation.
 
-To begin "clean" the output directory of old plotting files with
+To begin "clean" the Trixi output directory of old solution/plotting files with
 ```
 rm out/*.h5 out/*.vtu out/*.pvd
 ```
@@ -335,10 +344,10 @@ Next, create a new HOHQMesh control file
 ```
 cp box_with_object.control box_with_two_objects.control
 ```
-Update the `mesh file name` and `plot file name` appropriately in your new control file.
-Next, modify the new `box_with_two_objects.control` file to include an additional `CHAIN` inside
-the `INNER_BOUNDARIES` control block to include a second inner boundary that is an ellipse with the
-parametric equation
+and update the `mesh file name` and `plot file name` appropriately in your new control file.
+Modify the new `box_with_two_objects.control` file to include an additional `CHAIN` inside
+the `INNER_BOUNDARIES` control block to include a second inner boundary that is an ellipse
+with the parametric equation
 ```math
 x(t) = 0.6\cos(2\pi t), y(t) = 1.0 + 0.3\sin(2\pi t)
 ```
