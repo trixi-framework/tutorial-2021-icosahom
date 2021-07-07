@@ -20,10 +20,10 @@ In case of questions before the tutorial, please get in touch with
 or
 [join the Trixi.jl Slack workspace](https://join.slack.com/t/trixi-framework/shared_invite/zt-sgkc6ppw-6OXJqZAD5SPjBYqLd8MU~g).
 
-## Contents
+## Table of contents
 
-|  | [nbviewer](https://nbviewer.jupyter.org/) | [mybinder](https://mybinder.org/) |
-|:-:|:-:|:-:|
+| Jupyter notebook | [nbviewer](https://nbviewer.jupyter.org/) | [mybinder](https://mybinder.org/) |
+|:-|:-:|:-:|
 | [`introduction_to_trixi.ipynb`](introduction_to_trixi.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/introduction_to_trixi.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=introduction_to_trixi.ipynb) |
 | [`introduction_to_julia.ipynb`](introduction_to_julia.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/introduction_to_julia.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=introduction_to_julia.ipynb) |
 | [`exercises_linear_advection.ipynb`](exercises_linear_advection.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/exercises_linear_advection.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=exercises_linear_advection.ipynb) |
