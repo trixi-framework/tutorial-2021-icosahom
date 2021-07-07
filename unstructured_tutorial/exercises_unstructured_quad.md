@@ -16,9 +16,9 @@ Copy the files `box_with_object.control` and `tutorial_unstructured_exercise_3.j
 
 The commands and problem setups in this exercise set were set up and tested with Julia v1.6.1 but may also work with other (newer) versions.
 
-# Exercise 1: Run and visualize your first unstrctured simulation
+# Exercise 1: Run and visualize your first unstructured simulation
 
-Trixi supports soliving hyperbolic problems on several mesh types. Unstructured curvilinear quadrilateral meshes is
+Trixi supports solving hyperbolic problems on several mesh types. Unstructured curvilinear quadrilateral meshes is
 one such option. There is a default example for this mesh type that can be executed by
 ```julia
 julia> trixi_include(default_example_unstructured())
@@ -28,7 +28,7 @@ on the curved quadrilateral mesh described in the
 [Trixi documentation](https://trixi-framework.github.io/Trixi.jl/stable/meshes/unstructured_quad_mesh/).
 
 Apart from the usual error and timing output provided by the Trixi run, it is useful to visualize and inspect
-the solution. Currently, for solutions on unstrctured quadrilateral meshes, this requires post-processing the
+the solution. Currently, for solutions on unstructured quadrilateral meshes, this requires post-processing the
 Trixi output file(s) using the `Trixi2Vtk` tool and plotting them with [Paraview](https://www.paraview.org/download/).
 
 To convert the `.h5` file(s) into VTK format execute the following
@@ -41,7 +41,7 @@ Note this step takes 15-30 seconds as the package `Trixi2Vtk` must be precompile
 in your REPL session. The above `trixi2vtk` command will convert the solution file at the final time into a `.vtu`
 which can be readin and visualize with Paraview. A required argument for `trixi2vtk` is to point to the `output_directory`
 where the new files will be saved. An optional argument that can be set with `trixi2vtk` is to specify the number of
-visualization nodes. For instance, if we want to use 12 uniformly spaced nodes for visualizaion we can execute
+visualization nodes. For instance, if we want to use 12 uniformly spaced nodes for visualization we can execute
 ```julia
 julia> trixi2vtk("out/solution_000180.h5", output_directory="out", nvisnodes=12)
 ```
@@ -68,8 +68,8 @@ simulation.
 
 To obtain unstructured curvilinear quadrilateral meshes in the format required by Trixi we use the
 [*High-Order Hex-Quad (HOHQ) Mesh*](https://github.com/trixi-framework/HOHQMesh) generator created and developed by David Kopriva.
-HOHQMesh is a mesh generator specifically desgined for spectral element methods where elements can be larger (due to the high accuracy
-of the spatial approximation) and provides high-order boundary curve information (needed to accuracte set boundary conditions).
+HOHQMesh is a mesh generator specifically designed for spectral element methods where elements can be larger (due to the high accuracy
+of the spatial approximation) and provides high-order boundary curve information (needed to accurate set boundary conditions).
 For more information about the design and features of HOQHMesh you can refer to its
 [official documentation](https://trixi-framework.github.io/HOHQMesh/).
 
@@ -89,7 +89,7 @@ In this tutorial we only cover several basic features of the possible control in
 on the control file see the [HOHQMesh documentation](https://trixi-framework.github.io/HOHQMesh/).
 
 Open the file `box_with_object.control` provided in this tutorial. To begin we note that blank space or anything after a `%` is ignored
-by HOHQMesh at readin. The first three block of information are wraped within a `CONTROL_INPUT` environment block as they define the
+by HOHQMesh at readin. The first three block of information are wrapped within a `CONTROL_INPUT` environment block as they define the
 core components of the quadrilateral mesh that will be generated.
 
 The first block of information in `RUN_PARAMETERS` is
@@ -110,7 +110,7 @@ HOHQMesh it is a useful style convention.
 The mesh file format `ISM-v2` is the format currently required by Trixi. The `polynomial order` prescribes the order
 of an interpolant constructed on the Chebyshev-Gauss-Lobatto nodes that is used to represent any curved boundaries on a particular element.
 The plot file format of `skeleton` means that visualizing the plot file will only draw the element boundaries (and no internal nodes).
-Alternatively, the format can be set to `sem` to visualize the interior nodes of the approxmiation as well.
+Alternatively, the format can be set to `sem` to visualize the interior nodes of the approximation as well.
 
 The second block of information in `BACKGOUND_GRID`is
 ```
@@ -146,7 +146,7 @@ After the `CONTROL_INPUT` environment block comes the `MODEL` environment block.
 describe the boundary curve data to HOHQMesh like splines or parametric curves.
 
 For the example `box_with_object.control` we define a single internal boundary using a parametric equation for a circle
-of raidus $`r`$ centered at the point $`(x_c, y_c)`$, i.e.,
+of radius $`r`$ centered at the point $`(x_c, y_c)`$, i.e.,
 ```math
 x(t) = x_c + r\cos(2\pi t), y(t) = y_c + r\sin(2\pi t)
 ```
@@ -200,7 +200,7 @@ julia> println(output)
 The third command that prints the mesh statistics to the screen is optional. The `box_with_object.mesh` and `box_with_object.tec` files
 are placed into the `out/` by default. You can visualize the mesh that was just generated also using Paraview simply
 select "Tecplot Reader" when prompted after opening the `box_with_object.tec` file.
-From such a visualiation it appears that the mesh does not have a curved interior boundary, but this is an artifact of plotting software
+From such a visualization it appears that the mesh does not have a curved interior boundary, but this is an artifact of plotting software
 combined with using `plot file format = skeleton` in the `RUN_PARAMETERS`.
 
 Regenerate the mesh but change the control file to use `plot file format = sem`, execute
@@ -214,7 +214,7 @@ and re-load the `box_with_object.tec` file in Paraview to also visualize that in
 With the new mesh generated from *Exercise 3* we are ready to run another Trixi simulation on an unstructured quadrilateral mesh.
 For this we must create a new elixir file. As in *Exercise 1* we will solve the 2D compressible Euler equations.
 
-This elixir file already creates a new initial condition for a unform background flow state with a free stream Mach number of 0.3.
+This elixir file already creates a new initial condition for a uniform background flow state with a free stream Mach number of 0.3.
 An exercise dedicated to modifying the initial conditions is provided in `exercises_linear_advection.ipynb` for
 the linear advection equations.
 
@@ -269,7 +269,7 @@ boundary_conditions = Dict( :Bottom => ,# Your code can be written here
 # DGSEM solver.
 #    1) polydeg must be >= the polynomial order set in the HOHQMesh control file to guarantee
 #       freestream preservation. As a extra task try setting poyldeg=3
-#    2) VolumeIntegralFluxDifferencing with central volume flux is actiavted
+#    2) VolumeIntegralFluxDifferencing with central volume flux is activated
 #       for dealiasing
 volume_flux = flux_ranocha
 solver = DGSEM(polydeg=4, surface_flux=flux_hll,
