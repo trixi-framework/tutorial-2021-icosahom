@@ -28,6 +28,7 @@ or
 | [`introduction_to_julia.ipynb`](introduction_to_julia.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/introduction_to_julia.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=introduction_to_julia.ipynb) |
 | [`exercises_linear_advection.ipynb`](exercises_linear_advection.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/exercises_linear_advection.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=exercises_linear_advection.ipynb) |
 | [`exercises_euler.ipynb`](exercises_euler.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/exercises_euler.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=exercises_euler.ipynb) |
+| [`unstructured_tutorial/exercises_unstructured_quad.md`](unstructured_tutorial/exercises_unstructured_quad.md) | |
 
 Additional tutorials are available in the
 [documentation of Trixi.jl](https://trixi-framework.github.io/Trixi.jl/stable/).
