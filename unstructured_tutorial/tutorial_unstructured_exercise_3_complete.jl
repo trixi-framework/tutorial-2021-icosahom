@@ -37,7 +37,7 @@ boundary_conditions = Dict( :Bottom => boundary_condition_uniform_flow,
 
 # DGSEM solver.
 #    1) polydeg must be >= the polynomial order set in the HOHQMesh control file to guarantee
-#       freestream preservation. As a extra task try setting poyldeg=3
+#       freestream preservation. As a extra task try setting polydeg=3
 #    2) VolumeIntegralFluxDifferencing with central volume flux is activated
 #       for dealiasing
 volume_flux = flux_ranocha
