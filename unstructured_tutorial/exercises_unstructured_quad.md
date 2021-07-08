@@ -71,7 +71,7 @@ To obtain unstructured curvilinear quadrilateral meshes in the format required b
 [*High-Order Hex-Quad (HOHQ) Mesh*](https://github.com/trixi-framework/HOHQMesh) generator created and developed by David Kopriva.
 HOHQMesh is a mesh generator specifically designed for spectral element methods where elements can be larger (due to the high accuracy
 of the spatial approximation) and provides high-order boundary curve information (needed to accurately set boundary conditions).
-For more information about the design and features of HOQHMesh you can refer to its
+For more information about the design and features of HOHQMesh you can refer to its
 [official documentation](https://trixi-framework.github.io/HOHQMesh/).
 
 HOHQMesh is incorporated in the Trixi framework via the registered Julia package
@@ -109,7 +109,7 @@ The mesh and plot file names will be the files created by HOHQMesh once successf
 available if you wish to also save a collection of mesh statistics. For this example it is deactivated.
 These file names given within `RUN_PARAMETERS` **should match** that of the control file, although this is not required by
 HOHQMesh it is a useful style convention.
-The mesh file format `ISM-v2` is the format currently required by Trixi. The `polynomial order` prescribes the order
+The mesh file format `ISM-v2` in the format currently required by Trixi. The `polynomial order` prescribes the order
 of an interpolant constructed on the Chebyshev-Gauss-Lobatto nodes that is used to represent any curved boundaries on a particular element.
 The plot file format of `skeleton` means that visualizing the plot file will only draw the element boundaries (and no internal nodes).
 Alternatively, the format can be set to `sem` to visualize the interior nodes of the approximation as well.
@@ -314,7 +314,7 @@ sol = solve(ode, CarpenterKennedy2N54(williamson_condition=false),
 summary_callback()
 ```
 
-Before we run this simulation it is alwaays a good idea to "clean" the Trixi output directory
+Before we run this simulation it is always a good idea to "clean" the Trixi output directory
 and remove any old solution and/or plotting files with
 ```
 rm out/*.h5 out/*.vtu
