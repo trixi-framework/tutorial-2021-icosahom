@@ -65,7 +65,7 @@ located.
    * Brief introduction to Julia for newcomers
    * Learn about the syntax, the type model, and multiple dispatch
    * Q&A
- <br />
+
    *Hands-on:* the Jupyter notebook `introduction_to_julia.ipynb` (see
    [below](#tutorial-files)) can be used to simultaneously try out the
    examples in the presentation
