@@ -40,7 +40,7 @@ try out Trixi.jl on your own and with the help of our instructors. Please check
 out the [floor plan](#floor-plan) to help with finding out where everything is
 located.
 
-*Note:* All times are on Central European Summer Time (CEST).
+*Note:* All times are in Central European Summer Time (CEST).
 
 **Note: The schedule is still work-in-progress and will receive further updates.**
 
