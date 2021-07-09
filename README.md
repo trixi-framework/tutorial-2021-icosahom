@@ -1,34 +1,111 @@
-# Tutorial on Trixi.jl at ICOSAHOM 2021
+# Trixi.jl: High-Order Numerical Simulations of Hyperbolic PDEs in Julia
 
 This is the companion repository for the tutorial on
 [Trixi.jl](https://github.com/trixi-framework/Trixi.jl) at
 [ICOSAHOM 2021](https://www.icosahom2020.org):
 
-**Tutorial 2: Trixi.jl**
-*Venue:* gather.town (link to be added later)</br>
-*Date & time:* Wednesday, 14th July 2021, 6:15pm - 8:15pm (CEST)</br>
-*Chaired by:* Hendrik Ranocha, Michael Schlottke-Lakemper</br>
+**Tutorial 2: Trixi.jl**<br />
+*Venue:* gather.town (link to be added later)<br />
+*Date & time:* Wednesday, 14th July 2021, 6:15pm - 8:15pm (CEST)<br />
+*Chaired by:* Hendrik Ranocha, Michael Schlottke-Lakemper<br />
 *Link:* [conference agenda](https://www.conftool.com/icosahom2020/index.php?page=browseSessions&form_session=71&presentations=show)
 
 **Note: This repository is still work-in-progress and will receive further
 updates until the day before the tutorial session.**
 
-In case of questions before the tutorial, please get in touch with
+In case of questions before the beginning of the tutorial, please get in touch with
 [Hendrik](https://ranocha.de) or
 [Michael](https://www.mi.uni-koeln.de/NumSim/schlottke-lakemper),
 [create an issue](https://github.com/trixi-framework/tutorial-2021-icosahom/issues/new),
 or
 [join the Trixi.jl Slack workspace](https://join.slack.com/t/trixi-framework/shared_invite/zt-sgkc6ppw-6OXJqZAD5SPjBYqLd8MU~g).
 
-## Table of contents
+**Table of contents**
+1. [Schedule](#schedule)
+2. [Floor plan](#floor-plan)
+3. [Tutorial files](#tutorial-files)
+4. [Abstract](#abstract)
+5. [Getting started](#getting-started)
+   1. [Using mybinder.org](#using-mybinderorg)
+   2. [Setting up a local Julia/Jupyter installation](#setting-up-a-local-juliajupyter-installation)
+6. [Authors](#authors)
+7. [License](#license)
 
-| Jupyter notebook | [nbviewer](https://nbviewer.jupyter.org/) | [mybinder](https://mybinder.org/) |
+
+## Schedule
+
+The [Auditorium](#auditorium) will be used to give a few guided sessions on how
+to use Trixi.jl and Julia. The [Computer Lab](#computer-lab) has work spaces to
+try out Trixi.jl on your own and with the help of our instructors. Please check
+out the [floor plan](#floor-plan) to help with finding out where everything is
+located.
+
+*Note:* All times are in Central European Summer Time (CEST).
+
+**Note: The schedule is still work-in-progress and will receive further updates.**
+
+### Auditorium
+1. **6:15pm: What is Trixi.jl and how can I use it for my own projects?**<br />
+   *Speaker:* Hendrik Ranocha<br />
+   *Duration:* approx. 20 minutes + Q&A<br />
+
+   * Overview of Trixi's capabilities
+   * Learn how to set up and run simulations
+   * Extend Trixi for your own research
+   * Q&A
+
+   *Hands-on:* the Jupyter notebook `introduction_to_trixi.ipynb` (see
+   [below](#tutorial-files)) can be used to simultaneously try out the
+   examples in the presentation
+
+2. **6:45pm: Getting started with Julia**<br />
+   *Speaker:* Hendrik Ranocha<br />
+   *Duration:* approx. 10 minutes + Q&A
+
+   * Brief introduction to Julia for newcomers
+   * Learn about the syntax, the type model, and multiple dispatch
+   * Q&A
+ <br />
+   *Hands-on:* the Jupyter notebook `introduction_to_julia.ipynb` (see
+   [below](#tutorial-files)) can be used to simultaneously try out the
+   examples in the presentation
+
+3. **7:00pm: From grid generation to visualization: Working with unstructured curved meshes in Trixi.jl**<br />
+   *Speaker:* Andrew R. Winters<br />
+   *Duration:* approx. 15 minutes + Q&A
+
+   * Introduction to using HOHQMesh.jl to generate high-order meshes
+   * Understand how to set up an unstructured simulation in Trixi
+   * Learn about the visualization pipeline with Trixi2Vtk.jl and ParaView
+   * Q&A
+
+### Computer Lab (hands-on sessions)
+The Computer Lab can be used any time to try out Julia and Trixi.jl either in
+small groups or alone. There are 18 lab tables available (see [floor plan](#floor-plan)),
+each being a private space where you can talk to all people at the same table.
+Throughout the room and/or at the organizer table near the south wall, you will
+find a number of instructors who you can ask for assistance with using Trixi.jl
+or Julia (just walk up to us and ask away!):
+
+* Christof Czernik
+* Erik Faulhaber
+* Hendrik Ranocha
+* Michael Schlottke-Lakemper
+* Andrew R. Winters
+
+
+## Floor plan
+![floorplan-icosahom-tutorial](https://user-images.githubusercontent.com/3637659/125036952-e1eaae00-e093-11eb-8b98-95d8b547e5c6.jpg)
+
+
+## Tutorial files
+| Item | [nbviewer](https://nbviewer.jupyter.org/) | [mybinder](https://mybinder.org/) |
 |:-|:-:|:-:|
 | [`introduction_to_trixi.ipynb`](introduction_to_trixi.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/introduction_to_trixi.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=introduction_to_trixi.ipynb) |
 | [`introduction_to_julia.ipynb`](introduction_to_julia.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/introduction_to_julia.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=introduction_to_julia.ipynb) |
 | [`exercises_linear_advection.ipynb`](exercises_linear_advection.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/exercises_linear_advection.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=exercises_linear_advection.ipynb) |
 | [`exercises_euler.ipynb`](exercises_euler.ipynb) | [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.jupyter.org/github/trixi-framework/tutorial-2021-icosahom/blob/main/exercises_euler.ipynb) | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/trixi-framework/tutorial-2021-icosahom/HEAD?filepath=exercises_euler.ipynb) |
-| [`unstructured_tutorial/exercises_unstructured_quad.md`](unstructured_tutorial/exercises_unstructured_quad.md) | |
+| [`unstructured_tutorial/exercises_unstructured_quad.md`](unstructured_tutorial/exercises_unstructured_quad.md) | - | - |
 
 Additional tutorials are available in the
 [documentation of Trixi.jl](https://trixi-framework.github.io/Trixi.jl/stable/).
