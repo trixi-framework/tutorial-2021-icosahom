@@ -95,7 +95,7 @@ or Julia (just walk up to us and ask away!):
 
 
 ## Floor plan
-**tbd.**
+![floorplan-icosahom-tutorial](https://user-images.githubusercontent.com/3637659/125036952-e1eaae00-e093-11eb-8b98-95d8b547e5c6.jpg)
 
 
 ## Tutorial files
