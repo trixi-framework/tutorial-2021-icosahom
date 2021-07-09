@@ -1,4 +1,4 @@
-# Trixi.jl: High-Order Numerical Simulations in Julia
+# Trixi.jl: High-Order Numerical Simulations of Hyperbolic PDEs in Julia
 
 This is the companion repository for the tutorial on
 [Trixi.jl](https://github.com/trixi-framework/Trixi.jl) at
