@@ -79,13 +79,14 @@ located.
    * Learn about the visualization pipeline with Trixi2Vtk.jl and ParaView
    * Q&A
 
-### Computer Lab (hands-on sessions)
-The Computer Lab can be used any time to try out Julia and Trixi.jl either in
-small groups or alone. There are 18 lab tables available (see [floor plan](#floor-plan)),
-each being a private space where you can talk to all people at the same table.
-Throughout the room and/or at the organizer table near the south wall, you will
-find a number of instructors who you can ask for assistance with using Trixi.jl
-or Julia (just walk up to us and ask away!):
+### Computer Lab
+The Computer Lab can be used any time to try out Julia and Trixi.jl in a
+hands-on session either in small groups or alone. There are 18 lab tables
+available (see [floor plan](#floor-plan)), each being a private space where you
+can talk to all people at the same table.  Throughout the room and/or at the
+organizer table near the south wall, you will find a number of instructors who
+you can ask for assistance with using Trixi.jl or Julia (just walk up to us and
+ask away!):
 
 * Christof Czernik
 * Erik Faulhaber
