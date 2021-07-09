@@ -37,7 +37,7 @@ or
 The [Auditorium](#auditorium) will be used to give a few guided sessions on how
 to use Trixi.jl and Julia. The [Computer Lab](#computer-lab) has work spaces to
 try out Trixi.jl on your own and with the help of our instructors. Please check
-out the [floor plan](#floor-plan) to help with finding out where everthing is
+out the [floor plan](#floor-plan) to help with finding out where everything is
 located.
 
 *Note:* All times are on Central European Summer Time (CEST).
