@@ -4,10 +4,10 @@ This is the companion repository for the tutorial on
 [Trixi.jl](https://github.com/trixi-framework/Trixi.jl) at
 [ICOSAHOM 2021](https://www.icosahom2020.org):
 
-**Tutorial 2: Trixi.jl**  
-*Venue:* gather.town (link to be added later)  
-*Date & time:* Wednesday, 14th July 2021, 6:15pm - 8:15pm (CEST)  
-*Chaired by:* Hendrik Ranocha, Michael Schlottke-Lakemper  
+**Tutorial 2: Trixi.jl**<br />
+*Venue:* gather.town (link to be added later)<br />
+*Date & time:* Wednesday, 14th July 2021, 6:15pm - 8:15pm (CEST)<br />
+*Chaired by:* Hendrik Ranocha, Michael Schlottke-Lakemper<br />
 *Link:* [conference agenda](https://www.conftool.com/icosahom2020/index.php?page=browseSessions&form_session=71&presentations=show)
 
 **Note: This repository is still work-in-progress and will receive further
@@ -45,9 +45,9 @@ located.
 **Note: The schedule is still work-in-progress and will receive further updates.**
 
 ### Auditorium
-1. **6:15pm: What is Trixi.jl and how can I use it for my own projects?**  
-   *Speaker:* Hendrik Ranocha  
-   *Duration:* approx. 20 minutes + Q&A  
+1. **6:15pm: What is Trixi.jl and how can I use it for my own projects?**<br />
+   *Speaker:* Hendrik Ranocha<br />
+   *Duration:* approx. 20 minutes + Q&A<br />
 
    * Overview of Trixi's capabilities
    * Learn how to set up and run simulations
@@ -58,20 +58,20 @@ located.
    [below](#tutorial-files)) can be used to simultaneously try out the
    examples in the presentation
 
-2. **6:45pm: Getting started with Julia**  
-   *Speaker:* Hendrik Ranocha  
+2. **6:45pm: Getting started with Julia**<br />
+   *Speaker:* Hendrik Ranocha<br />
    *Duration:* approx. 10 minutes + Q&A
 
    * Brief introduction to Julia for newcomers
    * Learn about the syntax, the type model, and multiple dispatch
    * Q&A
-   
+ <br />
    *Hands-on:* the Jupyter notebook `introduction_to_julia.ipynb` (see
    [below](#tutorial-files)) can be used to simultaneously try out the
    examples in the presentation
 
-3. **7:00pm: From grid generation to visualization: Working with unstructured curved meshes in Trixi.jl**  
-   *Speaker:* Andrew R. Winters  
+3. **7:00pm: From grid generation to visualization: Working with unstructured curved meshes in Trixi.jl**<br />
+   *Speaker:* Andrew R. Winters<br />
    *Duration:* approx. 15 minutes + Q&A
 
    * Introduction to using HOHQMesh.jl to generate high-order meshes
