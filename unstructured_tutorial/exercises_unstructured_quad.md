@@ -133,18 +133,13 @@ The third block of information in `SPRING_SMOOTHER` is
 \begin{SPRING_SMOOTHER}
    smoothing            = ON
    smoothing type       = LinearAndCrossBarSpring
-   spring constant      = 1.0
-   mass                 = 1.0
-   rest length          = 0.0
-   damping coefficient  = 5.0
    number of iterations = 25
-   time step            = 0.1
 \end{SPRING_SMOOTHER}
 ```
 Once HOHQMesh generates the mesh, a spring-mass-dashpot model is created to smooth the mesh and create "nicer" quadrilateral elements.
-The parameters for this spring-mass-dashpot model have been selected after a fair amount of experimentation across many meshes
-and typically will not need to be altered. However, if you ever wish to deactivate this feature you can set `smoothing = OFF`
-(or remove this block from the control file).
+The [default parameters of Hooke's law](https://trixi-framework.github.io/HOHQMesh/the-control-input/#the-smoother)
+for the spring-mass-dashpot model have been selected after a fair amount of experimentation across many meshes.
+If you wish to deactivate this feature you can set `smoothing = OFF` (or remove this block from the control file).
 
 After the `CONTROL_INPUT` environment block comes the `MODEL` environment block. It is here where the user can prescribe curved boundary information with either:
 * An `OUTER_BOUNDARY` (not covered in this tutorial).
