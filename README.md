@@ -5,7 +5,7 @@ This is the companion repository for the tutorial on
 [ICOSAHOM 2021](https://www.icosahom2020.org):
 
 **Tutorial 2: Trixi.jl**<br />
-*Venue:* gather.town (link to be added later)<br />
+*Venue:* gather.town<br />
 *Date & time:* Wednesday, 14th July 2021, 6:15pm - 8:15pm (CEST)<br />
 *Chaired by:* Hendrik Ranocha, Michael Schlottke-Lakemper<br />
 *Link:* [conference agenda](https://www.conftool.com/icosahom2020/index.php?page=browseSessions&form_session=71&presentations=show)
