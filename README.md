@@ -10,9 +10,6 @@ This is the companion repository for the tutorial on
 *Chaired by:* Hendrik Ranocha, Michael Schlottke-Lakemper<br />
 *Link:* [conference agenda](https://www.conftool.com/icosahom2020/index.php?page=browseSessions&form_session=71&presentations=show)
 
-**Note: This repository is still work-in-progress and will receive further
-updates until the day before the tutorial session.**
-
 In case of questions before the beginning of the tutorial, please get in touch with
 [Hendrik](https://ranocha.de) or
 [Michael](https://www.mi.uni-koeln.de/NumSim/schlottke-lakemper),
@@ -42,12 +39,10 @@ located.
 
 *Note:* All times are in Central European Summer Time (CEST).
 
-**Note: The schedule is still work-in-progress and will receive further updates.**
-
 ### Auditorium
 1. **6:15pm: What is Trixi.jl and how can I use it for my own projects?**<br />
    *Speaker:* Hendrik Ranocha<br />
-   *Duration:* approx. 20 minutes + Q&A<br />
+   *Duration:* approx. 15 minutes + Q&A<br />
 
    * Overview of Trixi's capabilities
    * Learn how to set up and run simulations
@@ -58,7 +53,7 @@ located.
    [below](#tutorial-files)) can be used to simultaneously try out the
    examples in the presentation
 
-2. **6:45pm: Getting started with Julia**<br />
+2. **6:40pm: Getting started with Julia**<br />
    *Speaker:* Hendrik Ranocha<br />
    *Duration:* approx. 10 minutes + Q&A
 
