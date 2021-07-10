@@ -135,6 +135,12 @@ You can view a static version of the Jupyter notebooks `*.ipynb`
 
 These static versions do not contain output of the code cells.
 
+Below you will find information on how to use the notebooks either via
+[mybinder.org](#using-mybinderorg) or by
+[setting up a local installation](#setting-up-a-local-juliajupyter-installation).
+If you are only interested in installing Julia and Trixi without the Jupyter
+setup, you can also watch a [video on YouTube](https://www.youtube.com/watch?v=gfnodCRU2As).
+
 ### Using mybinder.org
 The easiest way to get started is to click on the *Launch Binder* badges
 in the table of contents above.
