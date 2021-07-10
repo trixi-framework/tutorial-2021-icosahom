@@ -2,7 +2,7 @@
 
 ## Exercises: Unstructured curvilinear quadrilateral solver
 
-### Andrew Winters
+**Andrew Winters**
 
 ## Authors and license
 
@@ -10,7 +10,8 @@ This material is distributed by Michael Schlottke-Lakemper, Hendrik Ranocha and 
 
 # Before you begin these exercises
 
-Follow the instructions to install Julia, Trixi, and Trixi2Vtk provided in the Jupyter notebook `introduction_to_trixi.ipynb`.
+Follow the instructions to install Julia, Trixi, and Trixi2Vtk provided in the Jupyter notebook `introduction_to_trixi.ipynb`
+or watch the video on [YouTube](https://www.youtube.com/watch?v=g5fzNX6Jivw).
 
 Copy the files `box_with_object.control` and `tutorial_unstructured_exercise_3.jl` into your Trixi.jl directory.
 
@@ -29,9 +30,9 @@ on the curved quadrilateral mesh described in the
 
 Apart from the usual error and timing output provided by the Trixi run, it is useful to visualize and inspect
 the solution. Currently, for solutions on unstructured quadrilateral meshes, this requires post-processing the
-Trixi output file(s) using the `Trixi2Vtk` tool and plotting them with [Paraview](https://www.paraview.org/download/).
+Trixi output file(s) using the `Trixi2Vtk` tool and plotting them with [ParaView](https://www.paraview.org/download/).
 
-To convert the `.h5` file(s) into VTK format execute the following
+To convert the HDF5-formatted `.h5` output file(s) from Trixi into VTK format execute the following
 ```julia
 julia> using Trixi2Vtk
 
@@ -39,8 +40,8 @@ julia> trixi2vtk("out/solution_000180.h5", output_directory="out")
 ```
 Note this step takes 15-30 seconds as the package `Trixi2Vtk` must be precompiled and executed for the first time
 in your REPL session. The above `trixi2vtk` command will convert the solution file at the final time into a `.vtu` file
-which can be readin and visualize with Paraview. A required argument for `trixi2vtk` is to point to the `output_directory`
-where the new files will be saved. An optional argument that can be set with `trixi2vtk` is to specify the number of
+which can be readin and visualize with ParaView. An optional argument for `trixi2vtk` is to point to the `output_directory`
+where the new files will be saved; it defaults to the current directory. An optional argument that can be set with `trixi2vtk` is to specify the number of
 visualization nodes. For instance, if we want to use 12 uniformly spaced nodes for visualization we can execute
 ```julia
 julia> trixi2vtk("out/solution_000180.h5", output_directory="out", nvisnodes=12)
@@ -52,7 +53,7 @@ Finally, if you want to convert all the solution files to VTK execute
 ```julia
 julia> trixi2vtk("out/solution_000*", output_directory="out", nvisnodes=12)
 ```
-then it is possible to open the `.pvd` file with Paraview and create a video of the simulation.
+then it is possible to open the `.pvd` file with ParaView and create a video of the simulation.
 
 # Exercise 2: Generate an unstructured quadrilateral mesh for use in Trixi
 
@@ -68,7 +69,7 @@ simulation.
 ## Exercise 2a: Obtain the mesh generator
 
 To obtain unstructured curvilinear quadrilateral meshes in the format required by Trixi we use the
-[*High-Order Hex-Quad (HOHQ) Mesh*](https://github.com/trixi-framework/HOHQMesh) generator created and developed by David Kopriva.
+[*High-Order Hex-Quad Mesh (HOHQMesh)*](https://github.com/trixi-framework/HOHQMesh) generator created and developed by David Kopriva.
 HOHQMesh is a mesh generator specifically designed for spectral element methods where elements can be larger (due to the high accuracy
 of the spatial approximation) and provides high-order boundary curve information (needed to accurately set boundary conditions).
 For more information about the design and features of HOHQMesh you can refer to its
@@ -90,7 +91,7 @@ the domain to be meshed, prescribes any desired boundary curvature, the polynomi
 In this tutorial we only cover several basic features of the possible control inputs. For a complete discussion
 on this topic see the [HOHQMesh control file documentation](https://trixi-framework.github.io/HOHQMesh/the-control-file/).
 
-Open the file `box_with_object.control` provided by this tutorial. To begin we note that blank space or anything after a `%` is ignored
+Open the file [`box_with_object.control`](box_with_object.control) provided by this tutorial. To begin we note that blank space or anything after a `%` is ignored
 by HOHQMesh at readin. The first three blocks of information are wrapped within a `CONTROL_INPUT` environment block as they define the
 core components of the quadrilateral mesh that will be generated.
 
@@ -201,7 +202,7 @@ julia> println(output)
        Area Sign      1.00000000      1.00000000      1.00000000      1.00000000      1.00000000      1.00000000
 ```
 The third command that prints the mesh statistics to the screen is optional. The `box_with_object.mesh` and `box_with_object.tec` files
-are placed into the `out/` by default. You can visualize the mesh that was just generated also using Paraview simply
+are placed into the `out/` by default. You can visualize the mesh that was just generated also using ParaView simply
 select "Tecplot Reader" when prompted after opening the `box_with_object.tec` file.
 From such a visualization it appears that the mesh does not have a curved interior boundary, but this is an artifact of plotting software
 combined with using `plot file format = skeleton` in the `RUN_PARAMETERS`.
@@ -210,11 +211,11 @@ Regenerate the mesh but change the control file to use `plot file format = sem`,
 ```julia
 julia> output = generate_mesh(control_file);
 ```
-and re-load the `box_with_object.tec` file in Paraview to also visualize that internal mesh points/boundary curvature.
+and re-load the `box_with_object.tec` file in ParaView to also visualize that internal mesh points/boundary curvature.
 
 # Exercise 3: Run and visualize on `box_with_object.mesh`
 
-With the new mesh generated from *Exercise 3* we are ready to run another Trixi simulation on an unstructured quadrilateral mesh.
+With the new mesh generated from *Exercise 2* we are ready to run another Trixi simulation on an unstructured quadrilateral mesh.
 For this we must create a new elixir file. As in *Exercise 1* we will solve the 2D compressible Euler equations.
 
 The elixir file `tutorial_unstructured_exercise_3.jl` already creates a new initial condition for a
@@ -222,7 +223,7 @@ uniform background flow state with a free stream Mach number of 0.3.
 An exercise dedicated to modifying the initial conditions is provided in `exercises_linear_advection.ipynb` for
 the linear advection equations.
 
-The focus of this exercise is to specify the boundary conditions and the construct the new mesh from the
+The focus of this exercise is to specify the boundary conditions and to construct the new mesh from the
 file that was generated in the previous exercise. It is straightforward to set the different boundary
 condition types in an elixir by assigning a particular function to a boundary name inside a
 Julia dictionary, `Dict`, variable. Observe that the names of these boundaries match those provided by HOHQMesh
@@ -231,7 +232,7 @@ either by default, e.g. `Bottom`, or user assigned, e.g. `Circle`. For this prob
 * Free slip wall boundary condition on the interior circular boundary
 
 Construct the boundary condition and correctly load your mesh file by completing the code provided in
-`tutorial_unstructured_exercise_3.jl` (reproduced below).
+[`tutorial_unstructured_exercise_3.jl`](tutorial_unstructured_exercise_3.jl) (reproduced below).
 ```julia
 using OrdinaryDiffEq
 using Trixi
@@ -324,7 +325,7 @@ The simulation should use 131 time steps. You can convert the solution files to 
 ```julia
 trixi2vtk("out/solution_000*", output_directory="out", nvisnodes=10)
 ```
-then open the `.pvd` file in Paraview and watch the solution video.
+then open the `.pvd` file in ParaView and watch the solution video.
 
 # Exercise 4: Generate a mesh with two objects and run again
 
@@ -396,4 +397,4 @@ ten visualization nodes with
 ```julia
 trixi2vtk("out/solution_00*", output_directory="out", nvisnodes=10)
 ```
-Then open the `.pvd` file in Paraview and watch the solution video on your two object simulation.
+Then open the `.pvd` file in ParaView and watch the solution video on your two object simulation.
