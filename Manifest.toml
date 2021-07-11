@@ -436,6 +436,18 @@ git-tree-sha1 = "fd83fa0bde42e01952757f01149dd968c06c4dba"
 uuid = "0234f1f7-429e-5d53-9886-15a909be8d59"
 version = "1.12.0+1"
 
+[[HOHQMesh]]
+deps = ["HOHQMesh_jll"]
+git-tree-sha1 = "39d773ec191c8eb88f9e4ffde340a0e38de7ab9a"
+uuid = "e4f4c7b8-17cb-445a-93c5-f69190ed6c8c"
+version = "0.1.0"
+
+[[HOHQMesh_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Pkg"]
+git-tree-sha1 = "59b49a7515610da1d6eed5770a4a41e21bce46c4"
+uuid = "1d5cbd98-5122-5a8a-bea1-c186d986ee7f"
+version = "1.0.0+0"
+
 [[HTTP]]
 deps = ["Base64", "Dates", "IniFile", "Logging", "MbedTLS", "NetworkOptions", "Sockets", "URIs"]
 git-tree-sha1 = "c6a1fff2fd4b1da29d3dccaffb1e1001244d844e"
