@@ -6,9 +6,12 @@ This is the companion repository for the tutorial on
 
 **Tutorial 2: Trixi.jl**<br />
 *Venue:* gather.town<br />
-*Date & time:* Wednesday, 14th July 2021, 6:15pm - 8:15pm (CEST)<br />
+*Date & time:* Wednesday, 14th July 2021, 6:10pm - 8:10pm (CEST)<br />
 *Chaired by:* Hendrik Ranocha, Michael Schlottke-Lakemper<br />
 *Link:* [conference agenda](https://www.conftool.com/icosahom2020/index.php?page=browseSessions&form_session=71&presentations=show)
+
+The `gather.town` link will be available in the conference agenda just shortly
+before the official start.
 
 In case of questions before the beginning of the tutorial, please get in touch with
 [Hendrik](https://ranocha.de) or
@@ -40,7 +43,7 @@ located.
 *Note:* All times are in Central European Summer Time (CEST).
 
 ### Auditorium
-1. **6:15pm: What is Trixi.jl and how can I use it for my own projects?**<br />
+1. **6:20pm: What is Trixi.jl and how can I use it for my own projects?**<br />
    *Speaker:* Hendrik Ranocha<br />
    *Duration:* approx. 15 minutes + Q&A<br />
 
@@ -53,7 +56,7 @@ located.
    [below](#tutorial-files)) can be used to simultaneously try out the
    examples in the presentation
 
-2. **6:40pm: Getting started with Julia**<br />
+2. **6:45pm: Getting started with Julia**<br />
    *Speaker:* Hendrik Ranocha<br />
    *Duration:* approx. 10 minutes + Q&A
 
@@ -65,7 +68,7 @@ located.
    [below](#tutorial-files)) can be used to simultaneously try out the
    examples in the presentation
 
-3. **7:00pm: From grid generation to visualization: Working with unstructured curved meshes in Trixi.jl**<br />
+3. **7:05pm: From grid generation to visualization: Working with unstructured curved meshes in Trixi.jl**<br />
    *Speaker:* Andrew R. Winters<br />
    *Duration:* approx. 15 minutes + Q&A
 
